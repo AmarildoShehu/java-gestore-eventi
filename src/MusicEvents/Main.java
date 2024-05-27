@@ -51,7 +51,7 @@ public class Main {
 
         // Prenotazione posto
         System.out.print("Vuoi prenotare dei posti? (si/no): ");
-        if (scanner.next().equalsIgnoreCase("si")) {
+        if (scanner.nextLine().equalsIgnoreCase("si")) {
             boolean bookingSuccessful = false;
             while (!bookingSuccessful) {
                 System.out.print("Inserisci il numero di posti che vuoi prenotare: ");
@@ -70,7 +70,7 @@ public class Main {
 
         // Cancellazione prenotazione
         System.out.print("Vuoi cancellare dei posti? (si/no): ");
-        if (scanner.next().equalsIgnoreCase("si")) {
+        if (scanner.nextLine().equalsIgnoreCase("si")) {
             boolean cancelSuccessful = false;
             while (!cancelSuccessful) {
                 System.out.print("Inserisci il numero di posti che vuoi cancellare: ");
