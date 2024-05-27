@@ -62,6 +62,14 @@ public class Main {
                 }
             }
         }
+
+        printSeatsInfo(event);
         scanner.close();
+    }
+    private static void printSeatsInfo(Event event) {
+        int bookedSeats = event.getBookedSeats();
+        int availableSeats = event.getBookedSeats() - bookedSeats;
+        System.out.println("Possti prenotati: " + bookedSeats);
+        System.out.println("Posti ancora disponibili: " + availableSeats);
     }
 }
