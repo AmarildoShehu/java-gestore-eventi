@@ -8,6 +8,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
+        //Input per il nuovo evento
         System.out.print("Inserisci il titolo dell'evento: ");
         String title = scanner.nextLine();
 
@@ -34,7 +35,33 @@ public class Main {
             }
         }
 
+        // Crezione istanza evento
+        Event event = null;
+        try {
+            event = new Event(title, date, totalSeats);
+            System.out.println("Evento creato: " + event);
+        } catch (IllegalArgumentException e) {
+            System.err.println("Errore nela creazione dell'evento: " + e.getMessage());
+            System.exit(1);
+        }
 
+        // Prenotazione posto
+        System.out.print("Vuoi prenotare un poso? (si/no): ");
+        if (scanner.next().equalsIgnoreCase("si")) {
+            boolean bookingSuccessful = false;
+            while(!bookingSuccessful) {
+                System.out.print("Inserisci il numero di posti che vuoi prenotare: ");
+                try {
+                    int seatsToBook = Integer.parseInt(scanner.nextLine());
+                    event.book(seatsToBook);
+                    System.out.println("Posti prenotati con successo");
+                    bookingSuccessful = true;
+                } catch (NumberFormatException | NumberFormatException e) {
+                    System.err.println("Errore nella prenotazione dei posti: "
+                    + e.getMessage() + "Riprova");
+                }
+            }
+        }
         scanner.close();
     }
 }
