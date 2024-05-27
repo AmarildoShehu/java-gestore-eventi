@@ -48,4 +48,23 @@ public class Event {
     }
 
 
+    public void book(int seats) {
+        if (date.isBefore(LocalDate.now())) {
+            throw new IllegalStateException("L'evento è già passato.");
+        }
+        if (bookedSeats + seats > totalSeats) {
+            throw new IllegalStateException("Non ci sono abbastanza posti disponibili.");
+        }
+        bookedSeats += seats;
+    }
+
+    public void cancel(int seats) {
+        if (date.isBefore(LocalDate.now())) {
+            throw new IllegalStateException("L'evento è già passato.");
+        }
+        if (bookedSeats - seats < 0) {
+            throw new IllegalStateException("Non ci sono piu prenotazioni cancellabili.");
+        }
+        bookedSeats -= seats;
+    }
 }
