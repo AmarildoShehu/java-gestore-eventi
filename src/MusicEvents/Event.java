@@ -67,4 +67,9 @@ public class Event {
         }
         bookedSeats -= seats;
     }
+
+    @Override
+    public String toString() {
+        return date + " - " + title;
+    }
 }
